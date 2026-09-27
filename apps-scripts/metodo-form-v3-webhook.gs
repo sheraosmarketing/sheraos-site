@@ -23,7 +23,7 @@ var CRM_WEBHOOK_URL = 'https://sheraos.com.br/crm/api/webhooks/sheets/sheraos-ma
 
 // ─── Notificacao por email do novo lead ───────────────────────────
 // Recebe UM email por lead que entra (mesmo os <100k, pra voce ver tudo)
-var EMAIL_TO = 'agenciadouc@gmail.com'
+var EMAIL_TO = 'joaosoaresmattos3@gmail.com'
 var EMAIL_CC = ''  // ex: 'outro@email.com' — deixe vazio pra nao usar CC
 var EMAIL_ENABLED = true  // false pra pausar notificacoes por email
 
