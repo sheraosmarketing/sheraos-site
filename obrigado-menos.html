@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sheraos · Recebemos seu cadastro</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/logo-sheraos.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0KLJVQVQ3D"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0KLJVQVQ3D');</script>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2071518483727035');
+fbq('track','PageView');
+</script>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Poppins', -apple-system, sans-serif;
+  color: #fff;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(99,102,241,.22), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 85% 80%, rgba(139,92,246,.18), transparent 60%),
+    linear-gradient(180deg, #050418 0%, #0a0928 60%, #050418 100%);
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.wrap { width: 100%; max-width: 620px; text-align: center; }
+.brand { margin-bottom: 32px; }
+.brand img { height: 44px; opacity: .95; }
+.check {
+  width: 88px; height: 88px; margin: 0 auto 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 40px rgba(124,58,237,.35);
+  animation: pop .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+.check svg { width: 44px; height: 44px; color: #fff; }
+@keyframes pop { from { transform: scale(0); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+h1 {
+  font-size: clamp(1.85rem, 4.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -.015em;
+  margin-bottom: 18px;
+}
+h1 .hl {
+  background: linear-gradient(135deg, #C4C1FF 0%, #A5A0FF 100%);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lead {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: rgba(255,255,255,.85);
+  line-height: 1.6;
+  max-width: 520px; margin: 0 auto 26px;
+}
+.lead strong { color: #fff; font-weight: 700; }
+
+.info-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  text-align: left;
+}
+.info-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #C4C1FF; }
+.info-card p { font-size: .95rem; color: rgba(255,255,255,.8); line-height: 1.55; }
+.info-card p + p { margin-top: 10px; }
+
+.back {
+  display: inline-block; margin-top: 30px;
+  color: rgba(255,255,255,.6); font-size: .9rem;
+  text-decoration: none;
+}
+.back:hover { color: #fff; }
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2071518483727035&ev=PageView&noscript=1"/></noscript>
+
+<div class="wrap">
+  <div class="brand"><img src="/logo-sheraos.png" alt="Sheraos"></div>
+
+  <div class="check">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <h1>Recebemos sua <span class="hl">aplicação!</span></h1>
+  <p class="lead">
+    Obrigado por se inscrever. Nossa equipe vai <strong>analisar seu cenário</strong> e, caso seja um bom encaixe pro nosso método, entramos em contato.
+  </p>
+
+  <div class="info-card">
+    <h3>Enquanto isso...</h3>
+    <p>Nosso método foi desenhado pra empresas com estrutura comercial mínima e capacidade de operar volume. A partir de <strong>R$ 100 mil/mês</strong> de faturamento, as engrenagens de tráfego + CRM + IA + estratégia começam a girar juntas.</p>
+    <p>Se você ainda não chegou nesse patamar, nossos conteúdos gratuitos podem te ajudar a crescer até estar pronto pra dar o próximo passo.</p>
+  </div>
+
+  <a href="/" class="back">← Voltar ao site</a>
+</div>
+
+<script>
+// Sem evento Lead nesta pagina — evento Lead so dispara em /obrigado-100k
+// (leads >= R$100k/mes). PageView do pixel + GA4 ja disparam no head.
+// Aqui so limpa o sessionStorage pra nao vazar dados entre sessoes.
+(function() {
+  try { sessionStorage.removeItem('sh_lead') } catch (e) {}
+})();
+</script>
+</body>
+</html>
