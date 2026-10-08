@@ -115,24 +115,27 @@ h1 .gr-alpha{background:linear-gradient(135deg,var(--alpha-2),var(--alpha));back
 .kpi.k-amber   { --accent:var(--amber);   --accent-bg:rgba(251,191,36,.12);  --accent-border:rgba(251,191,36,.3); }
 .kpi.k-pink    { --accent:var(--pink);    --accent-bg:rgba(249,168,212,.12); --accent-border:rgba(249,168,212,.3); }
 
-/* FUNIL visual */
-.funnel{display:flex;flex-direction:column;gap:.7rem;max-width:900px;margin:0 auto}
-.funnel-row{display:grid;grid-template-columns:1fr 90px;gap:1rem;align-items:center}
-.funnel-bar{position:relative;border-radius:14px;padding:1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.funnel-bar .fn-label{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9)}
-.funnel-bar .fn-value{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;color:#fff;letter-spacing:-.015em}
-.funnel-pct{font-size:.9rem;font-weight:700;color:rgba(255,255,255,.65);text-align:right}
-.fn-1{background:linear-gradient(135deg,#F472B6,#EC4899)}
-.fn-2{background:linear-gradient(135deg,#FB923C,#F97316)}
-.fn-3{background:linear-gradient(135deg,#A78BFA,#8B5CF6)}
-.fn-4{background:linear-gradient(135deg,#60A5FA,#3B82F6)}
-.fn-5{background:linear-gradient(135deg,#34D399,#10B981)}
+/* FUNIL visual — barras sempre 100% largura, preenchimento interno mostra % */
+.funnel{display:flex;flex-direction:column;gap:.75rem;max-width:900px;margin:0 auto}
+.funnel-row{display:grid;grid-template-columns:1fr 110px;gap:1rem;align-items:center}
+.funnel-bar{position:relative;border-radius:14px;padding:1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;color:#fff;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.funnel-bar::before{content:'';position:absolute;top:0;left:0;bottom:0;width:var(--pct,100%);background:var(--fn-grad);border-radius:14px;z-index:0;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.funnel-bar .fn-label{position:relative;z-index:1;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4);white-space:nowrap}
+.funnel-bar .fn-value{position:relative;z-index:1;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;color:#fff;letter-spacing:-.015em;text-shadow:0 1px 3px rgba(0,0,0,.4);white-space:nowrap}
+.funnel-pct{font-size:.95rem;font-weight:800;color:#fff;text-align:right;letter-spacing:.02em}
+.funnel-pct small{display:block;font-size:.65rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.fn-1{--fn-grad:linear-gradient(135deg,#F472B6,#EC4899)}
+.fn-2{--fn-grad:linear-gradient(135deg,#FB923C,#F97316)}
+.fn-3{--fn-grad:linear-gradient(135deg,#A78BFA,#8B5CF6)}
+.fn-4{--fn-grad:linear-gradient(135deg,#60A5FA,#3B82F6)}
+.fn-5{--fn-grad:linear-gradient(135deg,#34D399,#10B981)}
 @media(max-width:640px){
-  .funnel-row{grid-template-columns:1fr 70px;gap:.6rem}
-  .funnel-bar{padding:.85rem 1rem;flex-direction:column;align-items:flex-start;gap:.3rem}
-  .funnel-bar .fn-label{font-size:.65rem}
-  .funnel-bar .fn-value{font-size:1.1rem}
-  .funnel-pct{font-size:.75rem}
+  .funnel-row{grid-template-columns:1fr 80px;gap:.6rem}
+  .funnel-bar{padding:.9rem 1rem}
+  .funnel-bar .fn-label{font-size:.6rem;letter-spacing:.08em}
+  .funnel-bar .fn-value{font-size:.95rem}
+  .funnel-pct{font-size:.78rem}
+  .funnel-pct small{font-size:.55rem}
 }
 
 /* Vendas / ROAS destaque */
@@ -319,42 +322,42 @@ h1 .gr-alpha{background:linear-gradient(135deg,var(--alpha-2),var(--alpha));back
 
     <div class="funnel">
       <div class="funnel-row">
-        <div class="funnel-bar fn-1">
+        <div class="funnel-bar fn-1" style="--pct:100%">
           <div class="fn-label">Impressões</div>
           <div class="fn-value">380.409</div>
         </div>
-        <div class="funnel-pct">100%</div>
+        <div class="funnel-pct">100%<small>base</small></div>
       </div>
       <div class="funnel-row">
-        <div class="funnel-bar fn-2" style="width:76%">
-          <div class="fn-label">Alcance (pessoas únicas)</div>
+        <div class="funnel-bar fn-2" style="--pct:76%">
+          <div class="fn-label">Alcance</div>
           <div class="fn-value">157.511</div>
         </div>
-        <div class="funnel-pct">41,4%</div>
+        <div class="funnel-pct">41,4%<small>vs base</small></div>
       </div>
       <div class="funnel-row">
-        <div class="funnel-bar fn-3" style="width:40%">
+        <div class="funnel-bar fn-3" style="--pct:52%">
           <div class="fn-label">Cliques</div>
           <div class="fn-value">1.992</div>
         </div>
-        <div class="funnel-pct">1,27%</div>
+        <div class="funnel-pct">1,27%<small>vs alcance</small></div>
       </div>
       <div class="funnel-row">
-        <div class="funnel-bar fn-4" style="width:22%">
-          <div class="fn-label">Conversas WhatsApp</div>
+        <div class="funnel-bar fn-4" style="--pct:35%">
+          <div class="fn-label">Conversas WPP</div>
           <div class="fn-value">153</div>
         </div>
-        <div class="funnel-pct">7,68%</div>
+        <div class="funnel-pct">7,68%<small>vs cliques</small></div>
       </div>
       <div class="funnel-row">
-        <div class="funnel-bar fn-5" style="width:14%">
-          <div class="fn-label">Vendas fechadas</div>
+        <div class="funnel-bar fn-5" style="--pct:24%">
+          <div class="fn-label">Vendas</div>
           <div class="fn-value">R$ 4.547</div>
         </div>
-        <div class="funnel-pct">416% ROAS</div>
+        <div class="funnel-pct">416%<small>ROAS</small></div>
       </div>
     </div>
-    <p class="slide-note">Os percentuais mostram a conversão de cada etapa em relação à etapa anterior do funil</p>
+    <p class="slide-note">Barras mostram o afunilamento visual · percentuais à direita são conversão vs etapa anterior</p>
   </div>
 </section>
 
@@ -437,9 +440,9 @@ h1 .gr-alpha{background:linear-gradient(135deg,var(--alpha-2),var(--alpha));back
           <div class="ig-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
           <span style="background:rgba(52,211,153,.15);color:#34D399;padding:3px 10px;border-radius:100px;font-size:.7rem;font-weight:800">↑ 134%</span>
         </div>
-        <div class="ig-value">117</div>
-        <div class="ig-label">Seguidores atuais</div>
-        <div class="ig-note">cresceu <strong style="color:#34D399">+134%</strong> vs período anterior</div>
+        <div class="ig-value">+117</div>
+        <div class="ig-label">Novos seguidores</div>
+        <div class="ig-note">ganhos no período · <strong style="color:#34D399">+134%</strong> vs anterior</div>
       </div>
       <div class="ig-card ig-purple">
         <div class="ig-head">
@@ -500,8 +503,8 @@ h1 .gr-alpha{background:linear-gradient(135deg,var(--alpha-2),var(--alpha));back
   </div>
   <div class="c">
     <span class="sec-tag amber">Linha do tempo</span>
-    <h1>Como o mês <span class="gr">evoluiu, semana a semana.</span></h1>
-    <p class="sub">O primeiro mês não é só gastar verba. É estruturar o funil, validar, ler os dados e ajustar. Veja o passo a passo que levou aos R$ 4.547 em vendas.</p>
+    <h1>Mais do que anúncio: <span class="gr">operação de crescimento completa.</span></h1>
+    <p class="sub">O mês não foi só gastar verba em mídia. Instalamos CRM, treinamos equipe, acompanhamos comercial e ajustamos funil em paralelo. Esse é o passo a passo que levou aos R$ 4.547 em vendas.</p>
 
     <div class="timeline">
       <div class="tl-item alpha">
@@ -510,24 +513,39 @@ h1 .gr-alpha{background:linear-gradient(135deg,var(--alpha-2),var(--alpha));back
         <div class="tl-desc">Montamos as camadas de topo, meio e fundo com objetivos distintos. Topo com reproduções de vídeo e engajamento no Instagram pra construir autoridade. Fundo com objetivo de mensagens WhatsApp pra captura imediata de leads qualificados.</div>
       </div>
       <div class="tl-item lilac">
+        <div class="tl-period">Semana 1 (01-07/09)</div>
+        <div class="tl-title">Instalação do CRM Sheraos + conexão WhatsApp</div>
+        <div class="tl-desc">Setup do CRM próprio da Sheraos, integração com os 2 números de WhatsApp (Araranguá e São João do Sul), configuração de funil, etapas e campos de qualificação. Cada lead que chega pelo anúncio é registrado automaticamente, com rastreamento de origem.</div>
+      </div>
+      <div class="tl-item amber">
+        <div class="tl-period">Semana 2 (08-14/09)</div>
+        <div class="tl-title">Treinamento da equipe de atendimento</div>
+        <div class="tl-desc">Treinamos as atendentes no uso do CRM, no fluxo de atendimento ideal e nas boas práticas pra lead de anúncio: tempo de resposta, abordagem inicial, qualificação por necessidade e condução até a venda. Equipe passou a trabalhar organizada em um único canal.</div>
+      </div>
+      <div class="tl-item lilac">
         <div class="tl-period">Semanas 1-2 (01-15/09)</div>
-        <div class="tl-title">Período de validação e aprendizado da conta</div>
-        <div class="tl-desc">Os primeiros 15 dias são de calibração do algoritmo do Meta. Métricas iniciais foram lidas pra identificar quais criativos, públicos e horários respondiam melhor em cada unidade (Araranguá e São João do Sul).</div>
+        <div class="tl-title">Período de validação e aprendizado da mídia</div>
+        <div class="tl-desc">Os primeiros 15 dias são de calibração do algoritmo do Meta. Métricas iniciais foram lidas pra identificar quais criativos, públicos e horários respondiam melhor em cada unidade.</div>
       </div>
       <div class="tl-item amber">
         <div class="tl-period">Semana 3 (15-21/09)</div>
-        <div class="tl-title">Ajustes conforme métricas iniciais</div>
-        <div class="tl-desc">Com dados em mão, otimizamos públicos, pausamos criativos de baixo desempenho e redistribuímos verba pros conjuntos que estavam performando. A qualificação dos leads que chegavam no WhatsApp melhorou bastante nessa fase.</div>
+        <div class="tl-title">Ajustes de mídia + acompanhamento comercial contínuo</div>
+        <div class="tl-desc">Com dados em mão, otimizamos públicos, pausamos criativos de baixo desempenho e redistribuímos verba. Em paralelo começamos o acompanhamento diário do comercial: dicas de vendas, revisão de scripts, correção de abordagem no WhatsApp, orientação sobre follow-ups e timing de retorno.</div>
       </div>
       <div class="tl-item green">
         <div class="tl-period">Semanas 3-4 (15-30/09)</div>
-        <div class="tl-title">Começou a gerar vendas de forma consistente</div>
-        <div class="tl-desc">Depois dos ajustes, a conta estabilizou e os leads começaram a converter em vendas reais na loja. Os R$ 4.547 vendidos vieram majoritariamente da segunda metade do mês, confirmando que a leitura dos dados e os ajustes funcionaram.</div>
+        <div class="tl-title">Vendas começaram a sair de forma consistente</div>
+        <div class="tl-desc">A combinação dos 3 ajustes (mídia + CRM + treinamento comercial) fez a diferença. Qualificação melhorou bastante, atendimento ficou mais ágil e as vendas começaram a sair com regularidade. Os R$ 4.547 vieram majoritariamente da segunda metade do mês, confirmando que o treinamento somado aos ajustes de mídia funcionou.</div>
       </div>
       <div class="tl-item alpha">
         <div class="tl-period">Final do mês (25-30/09)</div>
         <div class="tl-title">Troca dos criativos de aniversário</div>
-        <div class="tl-desc">O mês de aniversário da Alpha acabou (campanha era do mês anterior). Trocamos os anúncios de aniversário por novos criativos focados em produtos (5 cores, 4 produtos, problema/solução de mofo) pra manter a conta rodando com mensagem comercial atual.</div>
+        <div class="tl-desc">O aniversário da Alpha acabou (campanha era do mês anterior). Trocamos os anúncios por novos criativos focados em produtos (5 cores, 4 produtos, problema/solução de mofo) pra manter a conta rodando com mensagem comercial atual.</div>
+      </div>
+      <div class="tl-item green">
+        <div class="tl-period">Agora em outubro</div>
+        <div class="tl-title">Intensivo comercial focado em São João do Sul</div>
+        <div class="tl-desc">A unidade de Araranguá já tá rodando organizada com o CRM e o fluxo de atendimento. Em outubro o foco maior do acompanhamento comercial vai pra SJS: mesmo processo de treinamento, correção de abordagem e follow-up, pra equiparar as duas unidades em qualificação e taxa de conversão.</div>
       </div>
     </div>
   </div>
